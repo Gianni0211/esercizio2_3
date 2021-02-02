@@ -33,7 +33,7 @@ public class Main {
 				articolo.setQuantità(Integer.parseInt(art[3]));
 				articoli.put(articolo.getCodice(), articolo);
 
-				System.out.println(line);
+				
 
 			}
 			AggiungiArticolo.aggiungi(articoli);
