@@ -13,10 +13,7 @@ public class StampaArticolo {
 
 			System.out.println("ID: " + articolo.getId() + " Codice: " + articolo.getCodice() + " Descrizione: "
 					+ articolo.getDescrizione() + " Quantità: " + articolo.getQuantità());
-//			System.out.println(articolo.getId());
-//			System.out.println(articolo.getCodice());
-//			System.out.println(articolo.getDescrizione());
-//			System.out.println(articolo.getQuantità());
+
 		}
 	}
 
