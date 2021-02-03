@@ -63,7 +63,7 @@ public class Main {
 			System.out.println("Cerca un articolo inserendo il suo codice");
 
 			String codiceDaUtente = scanner.nextLine();
-			if (articoli.get(codiceDaUtente) == null) {
+			while(articoli.get(codiceDaUtente) == null) {
 				System.out.println("L'articolo non esiste");
 				System.out.println("Inserisci un nuovo codice");
 
