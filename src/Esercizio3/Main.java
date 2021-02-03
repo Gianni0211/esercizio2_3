@@ -6,10 +6,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
 import java.util.Scanner;
 
 import Esercizio2.Articolo;
+import Esercizio2.CreaArticolo;
 
 public class Main {
 
@@ -30,18 +30,20 @@ public class Main {
 				articolo.setId(Integer.parseInt(art[0]));
 				articolo.setCodice(art[1]);
 				articolo.setDescrizione(art[2]);
-				articolo.setQuantità(Integer.parseInt(art[3]));
+				articolo.setQuantita(Integer.parseInt(art[3]));
 				articoli.put(articolo.getCodice(), articolo);
 
 				
 
 			}
-			AggiungiArticolo.aggiungi(articoli);
+			CreaArticolo artCreator = new CreaArticolo();
+			Articolo articolo = artCreator.crea(0);
+			articoli.put(articolo.getCodice(),articolo);
 			FileWriter csvWriter = new FileWriter("nuovi-articoli.csv");
 
 			for (Articolo a : articoli.values()) {
 				System.out.println("Id: " + a.getId() + " Codice: " + a.getCodice() + " Descrizione: "
-						+ a.getDescrizione() + " Quantità: " + a.getQuantità());
+						+ a.getDescrizione() + " Quantita: " + a.getQuantita());
 
 				csvWriter.append(String.valueOf(a.getId()));
 				csvWriter.append(";");
@@ -49,7 +51,7 @@ public class Main {
 				csvWriter.append(";");
 				csvWriter.append(a.getDescrizione());
 				csvWriter.append(";");
-				csvWriter.append(String.valueOf(a.getQuantità()));
+				csvWriter.append(String.valueOf(a.getQuantita()));
 				csvWriter.append(String.join(","));
 				csvWriter.append("\n");
 
@@ -68,7 +70,10 @@ public class Main {
 				codiceDaUtente = scanner.nextLine();
 			}
 
-			StampaArticolo.stampa(articoli, codiceDaUtente);
+			Articolo res = articoli.get(codiceDaUtente);
+			System.out.println("ID: " + res.getId() + " Codice: " + res.getCodice() + " Descrizione: "
+					+ res.getDescrizione() + " Quantità: " + res.getQuantita());
+			scanner.close();
 
 			br.close();
 

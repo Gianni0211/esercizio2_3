@@ -3,10 +3,14 @@ package Esercizio2;
 import java.util.Scanner;
 
 public class CreaArticolo {
+	
+	
 
-	static public void crea(Articolo art, int ord) {
-		@SuppressWarnings("resource")
+	 public  Articolo crea( int ord) {
+		Articolo art = new Articolo();
 		Scanner scanner = new Scanner(System.in);
+	
+		
 		System.out.println("Inserisci il codice del articolo " + (ord + 1));
 		String codice = scanner.nextLine();
 		System.out.println("Inserisci una descrizione");
@@ -16,8 +20,13 @@ public class CreaArticolo {
 
 		art.setCodice(codice);
 		art.setDescrizione(desc);
-		art.setQuantità(quant);
-		art.setId(art.createId(ord));
+		art.setQuantita(quant);
+		art.setId(ord + 1);
+		
+		
+		return art;
 
 	}
+	 
+	 
 }
